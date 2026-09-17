@@ -52,6 +52,8 @@
 | nodeSelector | object | The node labels that a node must have for the agentgateway proxy pod to be scheduled on it.<br/><br/>The default value is `{}`. |
 | oidc.cookieSecretName | string | The name of an existing secret that has the 'OIDC_COOKIE_SECRET' key. If unset, the chart references a '<release name>-oidc' secret as an optional secret.<br/><br/>The default value is `""`. |
 | podAnnotations | object | Annotations to add to the agentgateway proxy pod. The defaults let Prometheus scrape the proxy's metrics endpoint.<br/><br/>The default value is `{"prometheus.io/path":"/metrics","prometheus.io/port":"15020","prometheus.io/scrape":"true"}`. |
+| podDisruptionBudget | object | podDisruptionBudget allows you to define minimum and maximum available pods during voluntary disruptions.<br/><br/>The default value is `{"enabled":false,"maxUnavailable":"","minAvailable":1,"unhealthyPodEvictionPolicy":""}`. |
+| podDisruptionBudget.unhealthyPodEvictionPolicy | string | UnhealthyPodEvictionPolicy defines the criteria for when unhealthy pods should be considered for eviction.<br/><br/>The default value is `""`. |
 | podLabels | object | Labels to add to the agentgateway proxy pod.<br/><br/>The default value is `{}`. |
 | podSecurityContext | object | The pod-level security context for the agentgateway proxy pod.<br/><br/>The default value is `{}`. |
 | replicaCount | int | The number of agentgateway proxy pods to run. Both storage modes support multiple replicas.<br/><br/>The default value is `1`. |
